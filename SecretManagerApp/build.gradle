@@ -1,0 +1,26 @@
+plugins {
+	id 'org.springframework.boot' version '2.1.6.RELEASE'
+	id 'java'
+	id 'war'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'co.com.devco'
+version = '0.0.1'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation ('org.springframework.boot:spring-boot-starter-web'){
+		//exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+	}
+
+	// https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk
+	compile group: 'com.amazonaws', name: 'aws-java-sdk', version: '1.11.631'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
