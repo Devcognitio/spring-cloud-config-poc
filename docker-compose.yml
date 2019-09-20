@@ -17,7 +17,7 @@ services:
       - 8081:8080
     depends_on:
       - db
-
+  # Use admin/Admin123. as user/password credentials in admin console
   jboss:
     build: jboss/.
     ports:
