@@ -1,9 +1,6 @@
 FROM jboss/wildfly
 
-# Maintainer
-MAINTAINER Devco <contacto@devco.com.co>
-
-ENV ENVIRONMENT=desarrollo
+ENV AMBIENTE=desarrollo
 
 # Appserver
 ENV WILDFLY_USER admin
