@@ -51,7 +51,7 @@ RUN echo "=> Starting WildFly server" && \
 
 
 # Deploy the apps
-COPY springConfigServer-0.0.4.war /opt/jboss/wildfly/standalone/deployments/springConfigServer.war
+COPY springConfigServer-0.0.5.war /opt/jboss/wildfly/standalone/deployments/springConfigServer.war
 #ADD secretManagerApp-0.0.1.war /opt/jboss/wildfly/standalone/deployments/
 
 
