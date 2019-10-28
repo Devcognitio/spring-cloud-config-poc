@@ -19,7 +19,9 @@ services:
       - db
   # Use admin/Admin123. as user/password credentials in admin console
   jboss:
-    build: jboss/.
+    build: 
+      context: .
+      dockerfile: Dockerfile-jboss
     ports:
       - 8082:8080
       - 8083:9990
