@@ -4,8 +4,6 @@ Al descargar el proyecto será necesario compilar el proyecto SecretManagerApp y
 Se compilan entrando a la carpeta principal del proyecto y lanzando el siguiente comando en una consola:
 ```gradle clean build```
 
-Posteriormente se deben copiar los 2 .war generados y pegarlos en la carpeta *jboss*.
-
 -----------------
 # Crear la Base de datos
 Antes de ejecutar todos los servicios, es necesario configurar la BD, por lo tanto realizaremos las siguientes acciones:
