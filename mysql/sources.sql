@@ -1,4 +1,24 @@
 CREATE DATABASE secrets;
 USE secrets;
-create table PROPERTIES (id integer not null auto_increment, CREATED_ON datetime ,APPLICATION varchar(255), PROFILE varchar(255), LABEL varchar(255), PROP_KEY varchar(255), VALUE varchar(255), primary key (id)) engine=InnoDB;
-insert into PROPERTIES (CREATED_ON, APPLICATION, PROFILE, LABEL, PROP_KEY, VALUE) VALUES (NULL,'devglan','dev','latest','test-property','This is my test value');
+CREATE TABLE IF NOT EXISTS PROPERTIES (
+  KY         VARCHAR(300),
+  VALUE       VARCHAR(300),
+  APPLICATION VARCHAR(128),
+  PROFILE     VARCHAR(128),
+  LABEL       VARCHAR(128),
+  PRIMARY KEY (`KY`, `APPLICATION`, `PROFILE`, `LABEL`)
+);
+INSERT INTO PROPERTIES (APPLICATION, PROFILE, LABEL, KY, VALUE)
+VALUES ('demo', 'default', 'master', 'app.greet.name', 'Demo');
+
+INSERT INTO PROPERTIES (APPLICATION, PROFILE, LABEL, KY, VALUE)
+VALUES ('config-client', 'desarrollo', 'master', 'aws.usr', 'Demo');
+
+INSERT INTO PROPERTIES (APPLICATION, PROFILE, LABEL, KY, VALUE)
+VALUES ('config-client', 'desarrollo', 'master', 'aws.pwd', 'DemoPwd');
+
+INSERT INTO PROPERTIES (APPLICATION, PROFILE, LABEL, KY, VALUE)
+VALUES ('config-client', 'produccion', 'master', 'aws.usr', 'DemoProd');
+
+INSERT INTO PROPERTIES (APPLICATION, PROFILE, LABEL, KY, VALUE)
+VALUES ('config-client', 'produccion', 'master', 'aws.pwd', 'DemoPwdProd');
