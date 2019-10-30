@@ -17,10 +17,12 @@ repositories {
 dependencies {
 	implementation ('org.springframework.boot:spring-boot-starter-web'){
 		//exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+		exclude group: 'org.apache.tomcat.embed', module: 'tomcat-embed-websocket'
 	}
 
-	// https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk
-	compile group: 'com.amazonaws', name: 'aws-java-sdk', version: '1.11.631'
+	implementation group: 'com.amazonaws', name: 'aws-java-sdk', version: '1.11.631'
+
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }

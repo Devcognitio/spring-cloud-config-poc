@@ -21,10 +21,10 @@ public class DemoRestControler {
 
     final static Logger log = LoggerFactory.getLogger(DemoRestControler.class);
 
-    @Value("${aws.usr}")
+    @Value("${aws.usr:default}")
     private String usr;
 
-    @Value("${aws.pwd}")
+    @Value("${aws.pwd:defaultPwd}")
     private String pwd;
 
     @GetMapping("/secrets/{app}")
@@ -55,7 +55,7 @@ public class DemoRestControler {
 
         }catch (Exception err){
             err.printStackTrace();
-            return ResponseEntity.ok().body(err.getMessage());
+            return ResponseEntity.ok().body(err.getMessage() + "--- usr:" + usr + " pwd:" + pwd);
         }
     }
 }
