@@ -12,13 +12,13 @@ INSERT INTO PROPERTIES (APPLICATION, PROFILE, LABEL, KY, VALUE)
 VALUES ('demo', 'default', 'master', 'app.greet.name', 'Demo');
 
 INSERT INTO PROPERTIES (APPLICATION, PROFILE, LABEL, KY, VALUE)
-VALUES ('config-client', 'desarrollo', 'master', 'aws.usr', 'Demo');
+VALUES ('secretmanagerclient', 'desarrollo', 'master', 'aws.usr', 'Demo');
 
 INSERT INTO PROPERTIES (APPLICATION, PROFILE, LABEL, KY, VALUE)
-VALUES ('config-client', 'desarrollo', 'master', 'aws.pwd', 'DemoPwd');
+VALUES ('secretmanagerclient', 'desarrollo', 'master', 'aws.pwd', 'DemoPwd');
 
 INSERT INTO PROPERTIES (APPLICATION, PROFILE, LABEL, KY, VALUE)
-VALUES ('config-client', 'produccion', 'master', 'aws.usr', 'DemoProd');
+VALUES ('secretmanagerclient', 'produccion', 'master', 'aws.usr', 'DemoProd');
 
 INSERT INTO PROPERTIES (APPLICATION, PROFILE, LABEL, KY, VALUE)
-VALUES ('config-client', 'produccion', 'master', 'aws.pwd', 'DemoPwdProd');
+VALUES ('secretmanagerclient', 'produccion', 'master', 'aws.pwd', 'DemoPwdProd');

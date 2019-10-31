@@ -14,17 +14,19 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 
+@RefreshScope
 @RestController
 @RequestMapping("/api/v1")
 public class DemoRestControler {
 
     final static Logger log = LoggerFactory.getLogger(DemoRestControler.class);
 
-    @Value("${aws.usr:default}")
+    @Value("${aws.usr}")
     private String usr;
 
-    @Value("${aws.pwd:defaultPwd}")
+    @Value("${aws.pwd}")
     private String pwd;
 
     @GetMapping("/secrets/{app}")
@@ -32,9 +34,6 @@ public class DemoRestControler {
         try {
             String region = "us-east-1";
             String secretId = appName;
-
-            //Consumo de spring config
-            //TODO: Consumo como client
 
             //Consumo de SecretManager
             AWSCredentials credentials = new BasicAWSCredentials(usr, pwd);

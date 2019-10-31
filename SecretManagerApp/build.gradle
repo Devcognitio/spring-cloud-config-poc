@@ -15,6 +15,9 @@ repositories {
 }
 
 dependencies {
+	implementation('org.springframework.cloud:spring-cloud-starter-config:2.1.4.RELEASE'){
+		exclude group: 'org.apache.tomcat.embed', module: 'tomcat-embed-websocket'
+	}
 	implementation ('org.springframework.boot:spring-boot-starter-web'){
 		//exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
 		exclude group: 'org.apache.tomcat.embed', module: 'tomcat-embed-websocket'
