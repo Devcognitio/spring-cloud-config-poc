@@ -1,12 +1,14 @@
 package co.com.devco.demo;
 
-import com.amazonaws.auth.AWSCredentials;
-import com.amazonaws.auth.AWSCredentialsProvider;
+import com.amazonaws.ClientConfiguration;
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.secretsmanager.AWSSecretsManager;
 import com.amazonaws.services.secretsmanager.AWSSecretsManagerClientBuilder;
 import com.amazonaws.services.secretsmanager.model.GetSecretValueRequest;
+import com.amazonaws.services.secretsmanager.model.GetSecretValueResult;
+import com.amazonaws.auth.AWSCredentials;
+import com.amazonaws.auth.AWSCredentialsProvider;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
@@ -32,18 +34,20 @@ public class DemoRestControler {
     @GetMapping("/secrets/{app}")
     public ResponseEntity<String> getUsersById(@PathVariable(value = "app") String appName) {
         try {
-            String region = "us-east-1";
-            String secretId = appName;
+            String region = "us-west-2";
+            String secretId = "webapp-cercania/secrets";
 
-            //Consumo de SecretManager
-            AWSCredentials credentials = new BasicAWSCredentials(usr, pwd);
-            AWSCredentialsProvider credentialsProvider = new AWSStaticCredentialsProvider(credentials);
+            BasicAWSCredentials basicAWSCredentials = new BasicAWSCredentials(usr, pwd);
+
+            ClientConfiguration clientConfiguration = new ClientConfiguration();
+
             AWSSecretsManager client = AWSSecretsManagerClientBuilder.standard()
                     .withRegion(region)
-                    .withCredentials(credentialsProvider)
+                    .withCredentials(new AWSStaticCredentialsProvider(basicAWSCredentials))
+                    .withClientConfiguration(clientConfiguration)
                     .build();
-
-            GetSecretValueRequest secretRequest = new GetSecretValueRequest().withSecretId(secretId);
+            
+                    GetSecretValueRequest secretRequest = new GetSecretValueRequest().withSecretId(secretId);
 
             String secretResponse = client.getSecretValue(secretRequest).getSecretString();
 
