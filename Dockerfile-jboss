@@ -52,7 +52,7 @@ RUN echo "=> Starting WildFly server" && \
 
 # Deploy the apps
 COPY SpringConfigServer/build/libs/springConfigServer-0.0.5.war /opt/jboss/wildfly/standalone/deployments/springConfigServer.war
-COPY SecretManagerApp/build/libs/secretManagerApp-0.0.1.war /opt/jboss/wildfly/standalone/deployments/secretManagerApp.war
+#COPY SecretManagerApp/build/libs/secretManagerApp-0.0.1.war /opt/jboss/wildfly/standalone/deployments/secretManagerApp.war
 
 
 # Expose http and admin ports

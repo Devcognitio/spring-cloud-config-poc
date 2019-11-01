@@ -25,6 +25,8 @@ En la parte superior izquierda encontraremos la opción *Comando SQL*, lo abrimo
 
 Esperamos que todo se ejecute correctamente y entramos a ver que exista una nueva base de datos llamada *secrets*, una tabla dentro de esta BD llamda *PROPERTIES* y que esta tabla tenga un registro de ejemplo insertado.
 
+*NOTA:* Cuando se cree la base de datos, es necesario cambiar los datos cargados en la BD para que tengan unas credenciales correctas de AWS, no se guardan en este repositorio automáticamente ya que son de acceso restringido y podría ser peligroso tenerlas en el proyecto.
+
 ----------------
 # Ejecutar todo el proyecto
 
@@ -33,3 +35,14 @@ Para ejecutar el proyecto se requiere docker y docker-compose
 
 Detener los contenedores:
 ```docker-compose stop```
+
+----------------
+# Desplegar app de secretos y cliente del spring-config
+* Abrir la consola de Wildfly `http://localhost:8083`.
+* Abrir los despliegues y agregar uno nuevo con el .war del proyecto que se encuentra en `SecretManagerApp/build/libs/secretManagerApp-0.0.1.war`
+* Verificar que el despliegue se realiza correctamente.
+* Probar el funcionamiento del servicio con: `http://localhost:8082/secretManagerApp-0.0.1/api/v1/secrets/pruebaMS`
+
+----------------
+# Probar el spring-config
+`http://localhost:8082/springConfigServer/devgan/dev`
