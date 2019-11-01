@@ -46,3 +46,9 @@ Detener los contenedores:
 ----------------
 # Probar el spring-config
 `http://localhost:8082/springConfigServer/devgan/dev`
+
+----------------
+# Cambiar la configuración por ambiente en producción
+Es necesario ingresar parámetros a la JVM al realizar el despliegue en Wilfly, por ejemplo: 
+`java -Dspring.profiles.active=produccion -jar secretManagerApp-0.0.1.war`
+`java -Dspring.profiles.active=desarrollo -jar secretManagerApp-0.0.1.war`
